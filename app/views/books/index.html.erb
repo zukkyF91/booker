@@ -4,31 +4,31 @@
 
   <p>タイトル</p>
   <span><%= book.title %></span>
+  <span><%= book.body %></span>
  <%= link_to 'show', book_path(book.id) %>
 <%= link_to 'edit', edit_book_path(book.id) %>
 <%= link_to "destroy",book_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-<% end %>　
+<% end %>
 　<h1>新規投稿</h1>
 <!-- form_withにオプション追記 -->
 <%= form_with model: @book, method: :post do |f| %>
 
   <h4>タイトル</h4>
   <%= f.text_field :title %>
-  
-  <h4>本文</h4>
+
+  <h4>感想</h4>
   <%= f.text_area :body %>
-  
+
   <%= f.submit '投稿' %>
-  
+
 <% end %>
 
 <% if @book.errors.any? %>
   <%= @book.errors.count %>件のエラーが発生しました
   <ul>
-     <% @book.errors.full_messages.each do |message| %>
+    <% @book.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
   </ul>
 <% end %>
 
-　

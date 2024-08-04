@@ -21,6 +21,7 @@ end
         flash[:notice] = "投稿に失敗しました。"
       @books = Book.all
       render action: :index
+
     end
 
   end
